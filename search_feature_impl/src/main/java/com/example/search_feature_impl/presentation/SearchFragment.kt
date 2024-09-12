@@ -1,6 +1,7 @@
 package com.example.search_feature_impl.presentation
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.lifecycle.Lifecycle
@@ -10,8 +11,8 @@ import com.example.core_utils.extensions.lazyViewModel
 import com.example.search_feature_impl.R
 import com.example.search_feature_impl.databinding.FragmentSearchBinding
 import com.example.search_feature_impl.di.SearchFeatureComponentHolder
-import com.example.search_feature_impl.presentation.adapter.OfferAdapter
-import com.example.search_feature_impl.presentation.adapter.VacancyAdapter
+import com.example.search_feature_impl.domain.model.OffersUI
+import com.example.search_feature_impl.presentation.adapter.SearchAdapter
 import kotlinx.coroutines.launch
 
 class SearchFragment : Fragment(R.layout.fragment_search) {
@@ -24,14 +25,11 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     private var binding: FragmentSearchBinding ? = null
 
 
-    private lateinit var vacanciesAdapter: VacancyAdapter
-    private lateinit var offersAdapter: OfferAdapter
+    private lateinit var searchAdapter: SearchAdapter
 
-//    init {
-//        lifecycleScope.launch {
-//            SearchFeatureComponentHolder.getComponent().inject(this)
-//        }
-//    }
+    init {
+            SearchFeatureComponentHolder.getComponent().inject(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,8 +41,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentSearchBinding.bind(view)
-//        initVacancyRecycleView()
-//        initOfferRecycleView()
+        initSearchRecycleView()
         observe()
     }
 
@@ -52,26 +49,21 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch { viewModel.offersFlow.collect{
-                    vacanciesAdapter.items = it.vacancies
-                    offersAdapter.items = it.offers
+                    Log.d("MYTAG", "it   =   " + it)
+                    val list : List<OffersUI> = listOf(it)
+                    searchAdapter.items = list
                 } }
             }
         }
     }
 
-//    private fun initVacancyRecycleView() {
-//        with(binding?.rvVacanies) {
-//            vacanciesAdapter = VacancyAdapter(viewModel)
-//            this?.adapter = vacanciesAdapter
-//        }
-//    }
-//
-//    private fun initOfferRecycleView() {
-//        with(binding?.rvRecomendations) {
-//            offersAdapter = OfferAdapter()
-//            this?.adapter = offersAdapter
-//        }
-//    }
+
+    private fun initSearchRecycleView() {
+        with(binding?.rvSearchFragment) {
+            searchAdapter = SearchAdapter(viewModel)
+            this?.adapter = searchAdapter
+        }
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

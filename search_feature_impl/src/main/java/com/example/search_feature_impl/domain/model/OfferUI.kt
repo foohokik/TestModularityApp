@@ -5,7 +5,7 @@ import java.io.Serializable
 
 
 data class OfferUI(
-    val button: ButtonUI,
+    val button: String = "",
     val id: String,
     val link: String,
     val title: String,

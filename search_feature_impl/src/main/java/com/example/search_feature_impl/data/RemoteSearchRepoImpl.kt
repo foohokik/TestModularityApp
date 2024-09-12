@@ -11,7 +11,6 @@ class RemoteSearchRepoImpl @Inject constructor(private val api: JobApi):RemoteSe
 
     override suspend fun getOffers(): OffersUI {
         val result = api.getOffers().toOffersUI()
-        Log.d("MYTAG", "result   =   "+ result)
         return result
     }
 

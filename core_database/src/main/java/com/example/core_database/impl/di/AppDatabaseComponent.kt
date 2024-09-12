@@ -1,6 +1,8 @@
 package com.example.core_database.impl.di
 
+import android.content.Context
 import com.example.core_database.api.AppDatabaseApi
+import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
 
@@ -18,4 +20,5 @@ interface AppDatabaseComponent : AppDatabaseApi {
 				.build()
 		}
 	}
+
 }

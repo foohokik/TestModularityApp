@@ -17,4 +17,4 @@ data class VacancyUI(
     val salary: SalaryUI,
     val schedules: List<String>,
     val title: String
-): Serializable
+): Serializable, RecycleViewOffersItem

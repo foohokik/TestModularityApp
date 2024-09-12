@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import com.example.core_database.api.AppDatabaseApi
 import com.example.core_database.domain.VacancyDao
+import com.example.core_database.impl.di.AppDatabaseComponent
 import com.example.core_database.impl.di.AppDatabaseComponentHolder
 import com.example.core_database.impl.di.AppDatabaseDependencies
 import com.example.core_network.api.AppNetworkApi
@@ -46,13 +47,13 @@ class AppModule {
 //		return AppDatabaseComponentHolder.get()
 //	}
 //
-	@Singleton
-	@Provides
-	fun provideAppNetwork (dependencies: AppNetworkDependencies) : AppNetworkApi {
-		AppNetworkComponentHolder.init(dependencies)
-		Log.i("myTag","provideAppNetwork ")
-		return AppNetworkComponentHolder.get()
-	}
+//	@Singleton
+//	@Provides
+//	fun provideAppNetwork (dependencies: AppNetworkDependencies) : AppNetworkApi {
+//		AppNetworkComponentHolder.init(dependencies)
+//		Log.i("myTag","provideAppNetwork ")
+//		return AppNetworkComponentHolder.get()
+//	}
 
 	@Singleton
 	@Provides
