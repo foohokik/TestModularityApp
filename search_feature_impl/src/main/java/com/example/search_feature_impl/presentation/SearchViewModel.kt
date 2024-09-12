@@ -53,7 +53,7 @@ class SearchViewModel @AssistedInject constructor(
         TODO("Not yet implemented")
     }
 
-    override fun OnClickButton(btn: NumberVacancies) {
+    override fun onClickButton(btn: NumberVacancies) {
         TODO("Not yet implemented")
     }
 

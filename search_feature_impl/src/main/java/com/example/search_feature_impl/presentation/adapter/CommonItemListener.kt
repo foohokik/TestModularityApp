@@ -14,5 +14,5 @@ interface VacancyItemListener {
 
 interface ButtonItemListener {
 
-    fun OnClickButton (btn: NumberVacancies)
+    fun onClickButton (btn: NumberVacancies)
 }
