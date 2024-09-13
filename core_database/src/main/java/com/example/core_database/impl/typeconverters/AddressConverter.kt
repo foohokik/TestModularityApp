@@ -1,7 +1,7 @@
 package com.example.core_database.impl.typeconverters
 
 import androidx.room.TypeConverter
-import com.example.core.data.Address
+import com.example.core.data.AddressResponse
 import com.google.gson.Gson
 
 class AddressConverter {
@@ -9,10 +9,10 @@ class AddressConverter {
     private val gson = Gson()
 
     @TypeConverter
-    fun fromAddress(address: Address): String = gson.toJson(address)
+    fun fromAddress(addressResponse: AddressResponse): String = gson.toJson(addressResponse)
 
     @TypeConverter
-    fun toAddress (address: String): Address = gson.fromJson(address, Address::class.java)
+    fun toAddress (address: String): AddressResponse = gson.fromJson(address, AddressResponse::class.java)
 
 
 

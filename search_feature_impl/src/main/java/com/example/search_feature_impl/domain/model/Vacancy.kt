@@ -2,19 +2,19 @@ package com.example.search_feature_impl.domain.model
 
 import java.io.Serializable
 
-data class VacancyUI(
-    val address: AddressUI,
+data class Vacancy(
+    val address: Address?,
     val appliedNumber: Int,
     val company: String,
     val description: String,
-    val experience: ExperienceUI,
+    val experience: Experience,
     val id: String,
     val isFavorite: Boolean,
     val lookingNumber: Int,
     val publishedDate: String,
     val questions: List<String>,
     val responsibilities: String,
-    val salary: SalaryUI,
+    val salary: Salary,
     val schedules: List<String>,
     val title: String
-): Serializable, RecycleViewOffersItem
+)

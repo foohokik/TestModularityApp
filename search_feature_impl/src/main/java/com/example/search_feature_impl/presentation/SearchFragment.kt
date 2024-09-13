@@ -11,7 +11,7 @@ import com.example.core_utils.extensions.lazyViewModel
 import com.example.search_feature_impl.R
 import com.example.search_feature_impl.databinding.FragmentSearchBinding
 import com.example.search_feature_impl.di.SearchFeatureComponentHolder
-import com.example.search_feature_impl.domain.model.OffersUI
+import com.example.search_feature_impl.domain.model.Offers
 import com.example.search_feature_impl.presentation.adapter.SearchAdapter
 import kotlinx.coroutines.launch
 
@@ -49,9 +49,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch { viewModel.offersFlow.collect{
-                    Log.d("MYTAG", "it   =   " + it)
-                    val list : List<OffersUI> = listOf(it)
-                    searchAdapter.items = list
+                    searchAdapter.items = it
                 } }
             }
         }

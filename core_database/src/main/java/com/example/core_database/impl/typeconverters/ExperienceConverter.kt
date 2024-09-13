@@ -1,8 +1,7 @@
 package com.example.core_database.impl.typeconverters
 
 import androidx.room.TypeConverter
-import com.example.core.data.Address
-import com.example.core.data.Experience
+import com.example.core.data.ExperienceResponse
 import com.google.gson.Gson
 
 class ExperienceConverter {
@@ -10,9 +9,9 @@ class ExperienceConverter {
     private val gson = Gson()
 
     @TypeConverter
-    fun fromExperience(value: Experience): String = gson.toJson(value)
+    fun fromExperience(value: ExperienceResponse): String = gson.toJson(value)
 
     @TypeConverter
-    fun toExperience (value: String): Experience = gson.fromJson(value, Experience::class.java)
+    fun toExperience (value: String): ExperienceResponse = gson.fromJson(value, ExperienceResponse::class.java)
 
 }

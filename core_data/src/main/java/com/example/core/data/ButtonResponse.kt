@@ -1,7 +1,5 @@
 package com.example.core.data
 
-import java.io.Serializable
-
-data class Button(
+data class ButtonResponse(
     val text: String? = null
 )

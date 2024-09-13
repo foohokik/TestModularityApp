@@ -1,11 +1,5 @@
 package com.example.search_feature_impl.presentation.adapter
 
-import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.view.isVisible
-import com.example.search_feature_impl.databinding.ItemSearchVacancyBinding
-import com.example.search_feature_impl.domain.model.VacancyUI
-import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
-
 //fun vacancyDelegate (listener: VacancyItemListener) =
 //    adapterDelegateViewBinding<VacancyUI, VacancyUI, ItemSearchVacancyBinding>({
 //        layoutInflater,
@@ -30,7 +24,7 @@ import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 //                tvNowWatching.text = "Сейчас просматривает $people"
 //                tvVacanyName.text = item.title
 //                tvSalary.text = item.salary.full
-//                tvCity.text = item.address.town
+//                tvCity.text = item.addressResponse.town
 //                tvCompany.text = item.company
 //                tvExperience.text = item.experience.previewText
 //                tvPublicated.text = item.publishedDate

@@ -1,7 +1,6 @@
 package com.example.core_database.impl.typeconverters
 
 import androidx.room.TypeConverter
-import com.example.core.data.Experience
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 

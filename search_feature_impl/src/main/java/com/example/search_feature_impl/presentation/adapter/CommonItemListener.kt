@@ -1,14 +1,14 @@
 package com.example.search_feature_impl.presentation.adapter
 
-import com.example.search_feature_impl.domain.model.NumberVacancies
-import com.example.search_feature_impl.domain.model.VacancyUI
+import com.example.search_feature_impl.presentation.model.NumberVacancies
+import com.example.search_feature_impl.presentation.model.OffersUI
 
 interface CommonItemListener : VacancyItemListener, ButtonItemListener
 interface VacancyItemListener {
 
-    fun onVacancyClickListener (vacancy: VacancyUI)
+    fun onVacancyClickListener (vacancy: OffersUI.VacancyUI)
 
-    fun onFavoriteIconClick (vacancy: VacancyUI)
+    fun onFavoriteIconClick (vacancy: OffersUI.VacancyUI)
 
 }
 

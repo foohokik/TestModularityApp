@@ -3,31 +3,26 @@ package com.example.search_feature_impl.presentation
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.search_feature_impl.data.RemoteSearchRepoImpl
 import com.example.search_feature_impl.di.IoDispatcher
 import com.example.search_feature_impl.domain.SearchFeaureInteractor
-import com.example.search_feature_impl.domain.model.NumberVacancies
-import com.example.search_feature_impl.domain.model.OffersUI
-import com.example.search_feature_impl.domain.model.RecycleViewOffersItem
-import com.example.search_feature_impl.domain.model.VacancyUI
-import com.example.search_feature_impl.domain.repo.RemoteSearchRepo
+import com.example.search_feature_impl.domain.model.Offers
+import com.example.search_feature_impl.domain.model.Vacancy
 import com.example.search_feature_impl.presentation.adapter.CommonItemListener
-import com.example.search_feature_impl.presentation.adapter.VacancyItemListener
+import com.example.search_feature_impl.presentation.model.NumberVacancies
+import com.example.search_feature_impl.presentation.model.OffersUI
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 class SearchViewModel @AssistedInject constructor(
     private val interactor: SearchFeaureInteractor,
     @IoDispatcher private val dispatcher: CoroutineDispatcher
 ): ViewModel(), CommonItemListener {
 
-    private val _offersFlow = MutableStateFlow(OffersUI())
+    private val _offersFlow = MutableStateFlow<List<OffersUI>>(emptyList())
     val offersFlow = _offersFlow.asStateFlow()
 
     init {
@@ -45,17 +40,18 @@ class SearchViewModel @AssistedInject constructor(
         }
     }
 
-    override fun onVacancyClickListener(vacancy: VacancyUI) {
+    override fun onVacancyClickListener(vacancy: OffersUI.VacancyUI) {
         TODO("Not yet implemented")
     }
 
-    override fun onFavoriteIconClick(vacancy: VacancyUI) {
+    override fun onFavoriteIconClick(vacancy: OffersUI.VacancyUI) {
         TODO("Not yet implemented")
     }
 
     override fun onClickButton(btn: NumberVacancies) {
         TODO("Not yet implemented")
     }
+
 
     @AssistedFactory
     interface Factory {

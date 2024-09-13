@@ -2,14 +2,14 @@ package com.example.search_feature_impl.presentation.adapter
 
 import android.annotation.SuppressLint
 import androidx.recyclerview.widget.DiffUtil
-import com.example.search_feature_impl.domain.model.RecycleViewOffersItem
+import com.example.search_feature_impl.presentation.model.OffersUI
 
-internal class SearchAdapterDiffCallback : DiffUtil.ItemCallback<RecycleViewOffersItem>() {
+internal class SearchAdapterDiffCallback : DiffUtil.ItemCallback<OffersUI>() {
 
-    override fun areItemsTheSame(oldItem: RecycleViewOffersItem, newItem: RecycleViewOffersItem): Boolean =
+    override fun areItemsTheSame(oldItem: OffersUI, newItem: OffersUI): Boolean =
         oldItem.javaClass == newItem.javaClass
 
-    @SuppressLint("DiffUtilEquals")
-    override fun areContentsTheSame(oldItem: RecycleViewOffersItem, newItem: RecycleViewOffersItem): Boolean =
+
+    override fun areContentsTheSame(oldItem: OffersUI, newItem: OffersUI): Boolean =
         oldItem == newItem
 }

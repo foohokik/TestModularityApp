@@ -1,6 +1,6 @@
 package com.example.core.data
 
-data class Experience(
+data class ExperienceResponse(
     val previewText: String?,
     val text: String?
 )

@@ -1,8 +1,8 @@
 package com.example.search_feature_impl.domain.repo
 
-import com.example.search_feature_impl.domain.model.OffersUI
+import com.example.search_feature_impl.domain.model.Offers
 
 interface RemoteSearchRepo {
 
-    suspend fun getOffers(): OffersUI
+    suspend fun getOffers(): Offers
 }

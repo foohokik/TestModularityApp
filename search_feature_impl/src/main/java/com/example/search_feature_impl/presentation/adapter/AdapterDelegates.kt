@@ -5,15 +5,11 @@ import androidx.core.view.isVisible
 import com.example.search_feature_impl.databinding.ItemSearchHeaderBinding
 import com.example.search_feature_impl.databinding.ItemSearchOfferRvBinding
 import com.example.search_feature_impl.databinding.ItemSearchVacancyBinding
-import com.example.search_feature_impl.domain.model.Header
-import com.example.search_feature_impl.domain.model.OfferUI
-import com.example.search_feature_impl.domain.model.OffersList
-import com.example.search_feature_impl.domain.model.RecycleViewOffersItem
-import com.example.search_feature_impl.domain.model.VacancyUI
+import com.example.search_feature_impl.presentation.model.OffersUI
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 
 fun offerRecycleDelegate() = adapterDelegateViewBinding<
-        OffersList, RecycleViewOffersItem, ItemSearchOfferRvBinding>({
+        OffersUI.CommonList, OffersUI, ItemSearchOfferRvBinding>({
         layoutInflater,
         root ->
     ItemSearchOfferRvBinding.inflate(layoutInflater, root, false)}) {
@@ -27,7 +23,7 @@ fun offerRecycleDelegate() = adapterDelegateViewBinding<
 
 
 fun vacancyDelegate (listener: VacancyItemListener) =
-    adapterDelegateViewBinding<VacancyUI, RecycleViewOffersItem, ItemSearchVacancyBinding>({
+    adapterDelegateViewBinding<OffersUI.VacancyUI, OffersUI, ItemSearchVacancyBinding>({
             layoutInflater,
             root ->
         ItemSearchVacancyBinding.inflate(layoutInflater, root, false)}) {
@@ -50,7 +46,7 @@ fun vacancyDelegate (listener: VacancyItemListener) =
                 tvNowWatching.text = "Сейчас просматривает $people"
                 tvVacanyName.text = item.title
                 tvSalary.text = item.salary.full
-                tvCity.text = item.address.town
+                tvCity.text = item.address?.town
                 tvCompany.text = item.company
                 tvExperience.text = item.experience.previewText
                 tvPublicated.text = item.publishedDate
@@ -62,13 +58,12 @@ fun vacancyDelegate (listener: VacancyItemListener) =
         }
     }
 
-fun headerDelegate () = adapterDelegateViewBinding<Header, RecycleViewOffersItem, ItemSearchHeaderBinding>({
+fun headerDelegate () = adapterDelegateViewBinding<OffersUI.Header, OffersUI, ItemSearchHeaderBinding>({
         layoutInflater,
         root ->
     ItemSearchHeaderBinding.inflate(layoutInflater, root, false)}) {
 
     with(binding) {
-
         bind{
             tvVacanciesForYou.text = item.header
         }
