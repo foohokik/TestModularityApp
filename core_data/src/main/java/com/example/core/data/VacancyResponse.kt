@@ -3,7 +3,7 @@ package com.example.core.data
 import java.io.Serializable
 
 data class VacancyResponse(
-    val addressResponse: AddressResponse?,
+    val addressResponse: AddressResponse,
     val appliedNumber: Int = 0,
     val company: String?,
     val description: String?,

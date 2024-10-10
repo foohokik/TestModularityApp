@@ -6,6 +6,9 @@ import com.example.core.data.OffersResponse
 import com.example.core.data.SalaryResponse
 import com.example.core.data.VacancyResponse
 import com.example.core_database.impl.data.VacancyEntity
+import com.example.core_utils.presentation.model.AddressUI
+import com.example.core_utils.presentation.model.ExperienceUI
+import com.example.core_utils.presentation.model.SalaryUI
 import com.example.search_feature_impl.domain.model.Address
 import com.example.search_feature_impl.domain.model.Experience
 import com.example.search_feature_impl.domain.model.Offer
@@ -15,7 +18,7 @@ import com.example.search_feature_impl.domain.model.Vacancy
 
 //fun ButtonResponse.toButtonUI (): ButtonUI = ButtonUI (text.orEmpty())
 
-fun Offer.toOfferUI (): OffersUI.OfferUI = OffersUI.OfferUI(
+fun Offer.toOfferUI (): OfferUI = OfferUI(
     button,
     id.orEmpty(),
     link.orEmpty(),
@@ -33,7 +36,7 @@ fun chooseIcon(id: String?): Int {
     }
 }
 
-fun List<Offer>.toOffersListUI (): List<OffersUI.OfferUI> = this.map { it.toOfferUI() }
+fun List<Offer>.toOffersListUI (): List<OfferUI> = this.map { it.toOfferUI() }
 
 fun Address.toAddressUI(): AddressUI = AddressUI(house,street, town)
 
@@ -52,19 +55,14 @@ fun SalaryUI.toSalary (): Salary = Salary(full, short)
 
 fun Vacancy.toVacancyUI(): OffersUI.VacancyUI {
     return OffersUI.VacancyUI(
-        address?.toAddressUI(),
-        appliedNumber,
+        address.toAddressUI(),
         company.orEmpty(),
-        description.orEmpty(),
         experience.toExperienceUI(),
         id.orEmpty(),
         isFavorite,
         lookingNumber,
         publishedDate.orEmpty(),
-        questions.orEmpty(),
-        responsibilities.orEmpty(),
         salary.toSalaryUI(),
-        schedules.orEmpty(),
         title.orEmpty()
     )
 }
@@ -73,5 +71,18 @@ fun List<Vacancy>.toVacanciesListUI():List<OffersUI.VacancyUI> = this.map {it.to
 
 
 fun Offers.toCommonList(): OffersUI.CommonList = OffersUI.CommonList(
-    offers.toOffersListUI())
+    offers?.toOffersListUI())
 
+//fun OffersUI.VacancyUI.toVacancy(): Vacancy = Vacancy(
+//    address.toAddress(),
+//    company.orEmpty(),
+//    experience.toExperience(),
+//    id.orEmpty(),
+//    isFavorite,
+//    lookingNumber,
+//    publishedDate.orEmpty(),
+//    salary.toSalary(),
+//    title.orEmpty()
+//)
+
+//fun List<OffersUI.VacancyUI>.toVacanciesList():List<Vacancy> = this.map {it.toVacancy()}

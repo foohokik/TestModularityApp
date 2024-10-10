@@ -9,7 +9,7 @@
     tools:context=".presentation.SearchFragment">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/input_serch"
+        android:id="@+id/input_search"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
@@ -20,22 +20,22 @@
         app:endIconDrawable="@drawable/ic_close"
         app:endIconMode="clear_text"
         app:hintEnabled="false"
-        app:hintTextColor="@color/gray"
         app:layout_constraintEnd_toStartOf="@id/iv_filter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:placeholderTextColor="@android:color/transparent"
-        app:startIconDrawable="@drawable/ic_search">
+        app:startIconDrawable="@drawable/ic_search"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
+            style="attr/TextAppearance.Design.Hint"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@null"
             android:backgroundTint="@null"
-            android:enabled="false"
             android:hint="Должность, ключевые слова"
             android:textColorHint="@color/gray"
-            android:textSize="14sp" />
+            android:textSize="12sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
@@ -46,9 +46,9 @@
         android:background="@drawable/background_filter"
         android:padding="11dp"
         android:src="@drawable/ic_filter"
-        app:layout_constraintBottom_toBottomOf="@id/input_serch"
+        app:layout_constraintBottom_toBottomOf="@id/input_search"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/input_serch" />
+        app:layout_constraintTop_toTopOf="@id/input_search" />
 
     <TextView
         android:id="@+id/tv_vacaancies"
@@ -58,9 +58,9 @@
         android:text="0 вакансий"
         android:textColor="@color/white"
         android:textSize="14sp"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="@id/input_serch"
-        app:layout_constraintTop_toBottomOf="@id/input_serch"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@id/input_search"
+        app:layout_constraintTop_toBottomOf="@id/input_search"
         tools:visibility="visible" />
 
     <TextView
@@ -72,9 +72,9 @@
         android:text="По соответствию"
         android:textColor="@color/blue"
         android:textSize="14sp"
-        android:visibility="gone"
-        app:layout_constraintEnd_toStartOf="@id/tv_vacancies_filter"
-        app:layout_constraintTop_toBottomOf="@id/input_serch"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_search"
         tools:visibility="visible" />
 
     <ImageView
@@ -94,13 +94,12 @@
         android:id="@+id/rv_search_fragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="104dp"
         android:clipToPadding="false"
         android:paddingBottom="16dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_vacaancies" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

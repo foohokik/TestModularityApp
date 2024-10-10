@@ -1,33 +1,23 @@
 package com.example.search_feature_impl.presentation.model
 
 import androidx.annotation.DrawableRes
+import com.example.core_utils.presentation.model.AddressUI
+import com.example.core_utils.presentation.model.ExperienceUI
+import com.example.core_utils.presentation.model.SalaryUI
 import java.io.Serializable
 
 sealed class OffersUI  {
 
     data class VacancyUI(
-        val address: AddressUI?,
-        val appliedNumber: Int,
+        val address: AddressUI,
         val company: String,
-        val description: String,
         val experience: ExperienceUI,
         val id: String,
-        val isFavorite: Boolean,
+        var isFavorite: Boolean,
         val lookingNumber: Int,
         val publishedDate: String,
-        val questions: List<String>,
-        val responsibilities: String,
         val salary: SalaryUI,
-        val schedules: List<String>,
         val title: String
-    ): Serializable, OffersUI()
-
-    data class OfferUI(
-        val button: String = "",
-        val id: String,
-        val link: String,
-        val title: String,
-        @DrawableRes val icon: Int
     ): Serializable, OffersUI()
 
     data class Header(
@@ -35,9 +25,11 @@ sealed class OffersUI  {
     ): Serializable, OffersUI()
 
     data class CommonList (
-        val offers: List<OffersUI.OfferUI>,
-       // val vacancies: List<OffersUI.VacancyUI>
+        val offers: List<OfferUI>?
     ) : OffersUI()
 
+    data class QuantityOfVacanciesButton(
+        val qty: Int
+    ): OffersUI()
 
 }

@@ -57,6 +57,8 @@ dependencies {
     implementation(libs.dagger)
     kapt (libs.dagger.compiler)
 
+    implementation(libs.retrofit)
+
     implementation(libs.adapter.delegates)
 
     implementation(project(":module-injector"))
@@ -65,4 +67,5 @@ dependencies {
     implementation(project(":core_database"))
     implementation(project(":core_network"))
     implementation(project(":core_utils"))
+
 }

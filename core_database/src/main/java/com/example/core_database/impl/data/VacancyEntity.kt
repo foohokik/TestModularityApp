@@ -11,7 +11,7 @@ import java.io.Serializable
     tableName = "vacancies"
 )
 data class VacancyEntity (
-    val addressResponse: AddressResponse?,
+    val addressResponse: AddressResponse,
     val appliedNumber: Int,
     val company: String,
     val description: String,
@@ -23,7 +23,7 @@ data class VacancyEntity (
     val questions: List<String>,
     val responsibilities: String,
     val salary: SalaryResponse,
-    val schedules: List<String>,
+    val schedules: String,
     val title: String): Serializable
 
 

@@ -3,7 +3,7 @@ package com.example.search_feature_impl.domain.model
 import java.io.Serializable
 
 data class Vacancy(
-    val address: Address?,
+    val address: Address,
     val appliedNumber: Int,
     val company: String,
     val description: String,
@@ -15,6 +15,6 @@ data class Vacancy(
     val questions: List<String>,
     val responsibilities: String,
     val salary: Salary,
-    val schedules: List<String>,
+    val schedules:String,
     val title: String
 )

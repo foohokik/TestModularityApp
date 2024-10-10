@@ -3,7 +3,7 @@ package v.shihanova.core_utils.presentation.viewmodel
 import androidx.core.net.toUri
 import androidx.navigation.NavDirections
 import androidx.navigation.Navigator
-import v.shihanova.core_utils.presentation.SingleEvents
+import com.example.core_utils.presentation.SingleEvents
 
 interface Dispatcher {
 

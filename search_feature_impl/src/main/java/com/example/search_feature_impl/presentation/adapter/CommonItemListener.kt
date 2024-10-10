@@ -1,6 +1,5 @@
 package com.example.search_feature_impl.presentation.adapter
 
-import com.example.search_feature_impl.presentation.model.NumberVacancies
 import com.example.search_feature_impl.presentation.model.OffersUI
 
 interface CommonItemListener : VacancyItemListener, ButtonItemListener
@@ -13,6 +12,6 @@ interface VacancyItemListener {
 }
 
 interface ButtonItemListener {
-
-    fun onClickButton (btn: NumberVacancies)
+//    fun onClickButton (btn: OffersUI.QuantityOfVacanciesButton)
+      fun onClickButton ()
 }

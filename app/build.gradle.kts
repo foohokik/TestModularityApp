@@ -63,6 +63,10 @@ dependencies {
     implementation(project(":core_network"))
     implementation(project(":search_feature_api"))
     implementation(project(":search_feature_impl"))
+    implementation(project(":full_vacancy_feature_impl"))
+    implementation(project(":full_vacancy_feature_api"))
+    implementation(project(":favorite_feature_api"))
+    implementation(project(":favorite_feature_impl"))
 
 
 }

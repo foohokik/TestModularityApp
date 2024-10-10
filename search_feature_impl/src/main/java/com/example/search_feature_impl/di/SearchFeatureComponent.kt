@@ -7,7 +7,7 @@ import com.example.search_feature_impl.presentation.SearchViewModel
 import dagger.Component
 
 @Component(
-    modules = [SearchFeatureModule::class, DispatcherModule::class],
+    modules = [SearchFeatureModule::class, DispatcherModule::class, FlowModule::class],
     dependencies = [SearchFeatureDependencies::class]
 )
 @Feature

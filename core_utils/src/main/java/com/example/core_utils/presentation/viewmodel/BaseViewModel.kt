@@ -1,12 +1,11 @@
-package v.shihanova.core_utils.presentation.viewmodel
+package com.example.core_utils.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asSharedFlow
-import kotlinx.coroutines.flow.single
-import v.shihanova.core_utils.presentation.SingleEvents
+import com.example.core_utils.presentation.SingleEvents
+import v.shihanova.core_utils.presentation.viewmodel.Dispatcher
+import v.shihanova.core_utils.presentation.viewmodel.ViewState
 
 abstract class BaseViewModel<T : ViewState>(
 	initialState: T,

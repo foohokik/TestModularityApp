@@ -16,6 +16,10 @@
             <option value="$PROJECT_DIR$/core_database" />
             <option value="$PROJECT_DIR$/core_network" />
             <option value="$PROJECT_DIR$/core_utils" />
+            <option value="$PROJECT_DIR$/favorite_feature_api" />
+            <option value="$PROJECT_DIR$/favorite_feature_impl" />
+            <option value="$PROJECT_DIR$/full_vacancy_feature_api" />
+            <option value="$PROJECT_DIR$/full_vacancy_feature_impl" />
             <option value="$PROJECT_DIR$/module-injector" />
             <option value="$PROJECT_DIR$/search_feature_api" />
             <option value="$PROJECT_DIR$/search_feature_impl" />

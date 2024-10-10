@@ -8,7 +8,6 @@ class SearchAdapter (listener: CommonItemListener) :
         SearchAdapterDiffCallback(),
         offerRecycleDelegate(),
         vacancyDelegate(listener),
-        headerDelegate()
+        headerDelegate(),
+        buttonDelegate(listener)
     )
-{
-}

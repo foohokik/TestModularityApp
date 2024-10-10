@@ -12,6 +12,13 @@ import com.example.core_network.impl.JobApi
 import com.example.core_network.impl.di.AppNetworkComponent
 import com.example.core_network.impl.di.AppNetworkComponentHolder
 import com.example.core_network.impl.di.AppNetworkDependencies
+import com.example.core_network.impl.response.HttpResultToDataWrapperConverter
+import com.example.favorite_feature_api.FavoriteApi
+import com.example.favorite_feature_impl.di.FavoriteFeatureComponentHolder
+import com.example.favorite_feature_impl.di.FavoriteFeatureDependencies
+import com.example.full_vacancy_feature_api.FullVacancyApi
+import com.example.full_vacancy_feature_impl.di.FullVacancyFeatureComponentHolder
+import com.example.full_vacancy_feature_impl.di.FullVacancyFeatureDependencies
 import com.example.search_feature_api.SearchFeatureApi
 import com.example.search_feature_impl.di.SearchFeatureComponentHolder
 import com.example.search_feature_impl.di.SearchFeatureDependencies
@@ -58,10 +65,10 @@ class AppModule {
 	@Singleton
 	@Provides
 	fun provideFeatureSearchDependencies(): SearchFeatureDependencies {
-		Log.i("myTag", "provideFeatureSearchDependencies ")
 		return object : SearchFeatureDependencies {
 			override fun getVacanciesDao(): VacancyDao = AppDatabaseComponentHolder.get().getVacancyDao()
 			override fun getJobApi(): JobApi = AppNetworkComponentHolder.get().getJobApi()
+			override fun getConvertor(): HttpResultToDataWrapperConverter = AppNetworkComponentHolder.get().getConvertorForResponse()
 		}
 	}
 
@@ -70,5 +77,34 @@ class AppModule {
 		SearchFeatureComponentHolder.init(dependencies)
 		return SearchFeatureComponentHolder.get()
 	}
+
+	@Singleton
+	@Provides
+	fun provideFeatureFullVacancyDependencies() : FullVacancyFeatureDependencies{
+		return object : FullVacancyFeatureDependencies {
+			override fun getVacanciesDao(): VacancyDao = AppDatabaseComponentHolder.get().getVacancyDao()
+		}
+	}
+
+	@Provides
+	fun provideFeatureFullVacancy(dependencies: FullVacancyFeatureDependencies): FullVacancyApi {
+		FullVacancyFeatureComponentHolder.init(dependencies)
+		return FullVacancyFeatureComponentHolder.get()
+	}
+
+	@Singleton
+	@Provides
+	fun provideFeatureFavoriteDependencies() : FavoriteFeatureDependencies{
+		return object : FavoriteFeatureDependencies {
+			override fun getVacanciesDao(): VacancyDao = AppDatabaseComponentHolder.get().getVacancyDao()
+		}
+	}
+
+	@Provides
+	fun provideFeatureFavorite (dependencies: FavoriteFeatureDependencies): FavoriteApi {
+		FavoriteFeatureComponentHolder.init(dependencies)
+		return FavoriteFeatureComponentHolder.get()
+	}
+
 
 }

@@ -52,5 +52,4 @@ dependencies {
 
 
     implementation(project(":module-injector"))
-    implementation(project(":core_data"))
 }

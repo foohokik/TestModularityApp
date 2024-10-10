@@ -1,6 +1,7 @@
 package com.example.core_network.impl.di
 
 import com.example.core_network.impl.JobApi
+import com.example.core_network.impl.response.HttpResultToDataWrapperConverter
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -49,5 +50,11 @@ class NetworkModule {
         @Singleton
         fun provideApiService(retrofit: Retrofit): JobApi =
             retrofit.create(JobApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideConverter (): HttpResultToDataWrapperConverter {
+        return HttpResultToDataWrapperConverter()
     }
 }

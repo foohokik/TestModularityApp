@@ -1,4 +1,4 @@
-package v.shihanova.core_utils.presentation
+package com.example.core_utils.presentation
 
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
